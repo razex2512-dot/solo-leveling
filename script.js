@@ -7,15 +7,16 @@ let level = 1;
 let xpNeeded = 100;
 
 // LOGIN
-async function loginGoogle() {
+window.loginGoogle = async function () {
   const user = await googleLogin();
   userId = user.uid;
 
   await loadUserData();
+  loadMissions();
 
-  document.getElementById("loginPage").style.display = "none";
-  document.getElementById("appPage").style.display = "block";
-}
+  document.getElementById("loginPage").classList.remove("active");
+  document.getElementById("appPage").classList.add("active");
+};
 
 // LOAD DATA
 async function loadUserData() {
@@ -39,3 +40,57 @@ async function saveData() {
   const ref = doc(db, "users", userId);
   await setDoc(ref, { xp, level, xpNeeded });
 }
+
+// MISSIONS
+const missions = [
+  { name: "Push Ups", xp: 20 },
+  { name: "Squats", xp: 25 },
+  { name: "Running", xp: 30 }
+];
+
+function loadMissions() {
+  const container = document.getElementById("missions");
+  container.innerHTML = "";
+
+  missions.forEach(m => {
+    const btn = document.createElement("button");
+    btn.innerText = `${m.name} +${m.xp} XP`;
+    btn.onclick = () => gainXP(m.xp);
+    container.appendChild(btn);
+  });
+}
+
+// XP SYSTEM
+function gainXP(amount) {
+  xp += amount;
+
+  if (xp >= xpNeeded) {
+    xp -= xpNeeded;
+    level++;
+    xpNeeded = Math.floor(xpNeeded * 1.3);
+  }
+
+  updateUI();
+  saveData();
+}
+
+// UI
+function updateUI() {
+  document.getElementById("xp").innerText = xp;
+  document.getElementById("level").innerText = level;
+  document.getElementById("xpNeeded").innerText = xpNeeded;
+
+  let percent = (xp / xpNeeded) * 100;
+  document.getElementById("xpFill").style.width = percent + "%";
+}
+
+// NAV
+window.showSection = function (id) {
+  document.querySelectorAll(".section").forEach(sec => sec.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+};
+
+// LOGOUT
+window.logout = function () {
+  location.reload();
+};
