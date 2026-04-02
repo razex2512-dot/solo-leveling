@@ -1,71 +1,50 @@
-body {
-  margin: 0;
-  background: #05070d;
-  color: #00eaff;
-  font-family: sans-serif;
+let xp = 0;
+let level = 1;
+let xpNeeded = 100;
+
+function updateUI() {
+  document.getElementById("xp").innerText = xp;
+  document.getElementById("level").innerText = level;
+  document.getElementById("xpNeeded").innerText = xpNeeded;
+
+  let percent = (xp / xpNeeded) * 100;
+  document.getElementById("xpBarFill").style.width = percent + "%";
 }
 
-/* Header */
-.header {
-  text-align: center;
-  padding: 15px;
-  border-bottom: 1px solid #00eaff;
+function gainXP(amount) {
+  xp += amount;
+
+  if (xp >= xpNeeded) {
+    levelUp();
+  }
+
+  updateUI();
 }
 
-/* Screens */
-.screen {
-  display: none;
-  padding: 20px;
+function completeMission() {
+  gainXP(20);
 }
 
-.active {
-  display: block;
+function levelUp() {
+  xp -= xpNeeded;
+  level++;
+  xpNeeded = Math.floor(xpNeeded * 1.2);
+
+  showArise();
 }
 
-/* XP Bar */
-.xp-bar {
-  height: 20px;
-  background: #111;
-  border-radius: 10px;
-  margin: 10px 0;
+function showArise() {
+  const arise = document.getElementById("ariseText");
+  arise.style.display = "block";
+
+  setTimeout(() => {
+    arise.style.display = "none";
+  }, 1500);
 }
 
-#xpBarFill {
-  height: 100%;
-  width: 0%;
-  background: #00eaff;
+function showScreen(screenId) {
+  document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
+  document.getElementById(screenId).classList.add("active");
 }
 
-/* Buttons */
-button {
-  display: block;
-  width: 100%;
-  margin: 10px 0;
-  padding: 12px;
-  background: transparent;
-  color: #00eaff;
-  border: 1px solid #00eaff;
-}
-
-/* Navbar */
-.navbar {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  display: flex;
-}
-
-.navbar button {
-  flex: 1;
-  padding: 15px;
-}
-
-/* ARISE */
-#ariseText {
-  position: fixed;
-  top: 40%;
-  width: 100%;
-  text-align: center;
-  font-size: 40px;
-  display: none;
-}
+updateUI();
