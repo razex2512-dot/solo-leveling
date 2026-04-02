@@ -1,67 +1,96 @@
-body {
+* {
   margin: 0;
-  background: #05070d;
-  color: #00eaff;
-  font-family: sans-serif;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
 }
 
-/* Header */
-.header {
-  text-align: center;
-  padding: 15px;
-  border-bottom: 1px solid #00eaff;
+body {
+  background: #0b0f1a;
+  color: #e6f1ff;
 }
 
-/* Screens */
-.screen {
-  display: none;
-  padding: 20px;
-}
-
-.active {
-  display: block;
-}
-
-/* XP Bar */
-.xp-bar {
-  height: 20px;
-  background: #111;
-  border-radius: 10px;
-  margin: 10px 0;
-}
-
-#xpBarFill {
-  height: 100%;
-  width: 0%;
-  background: #00eaff;
-}
-
-/* Buttons */
-button {
-  display: block;
-  width: 100%;
-  margin: 10px 0;
-  padding: 12px;
-  background: transparent;
-  color: #00eaff;
-  border: 1px solid #00eaff;
-}
-
-/* Navbar */
-.navbar {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+.app {
+  max-width: 420px;
+  margin: auto;
+  height: 100vh;
   display: flex;
+  flex-direction: column;
 }
 
-.navbar button {
+/* HEADER */
+header {
+  padding: 20px;
+  border-bottom: 1px solid #1f2a44;
+}
+
+header h1 {
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+/* MAIN */
+main {
   flex: 1;
   padding: 15px;
 }
 
+/* CARDS */
+.card {
+  background: #121a2b;
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+/* XP BAR */
+.xp-bar {
+  height: 10px;
+  background: #1f2a44;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 10px 0;
+}
+
+#xpFill {
+  height: 100%;
+  width: 0%;
+  background: #4cc9f0;
+}
+
+/* BUTTON */
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  background: #1f2a44;
+  color: #e6f1ff;
+  border: none;
+  border-radius: 8px;
+}
+
+/* NAVBAR */
+nav {
+  display: flex;
+  border-top: 1px solid #1f2a44;
+}
+
+nav button {
+  flex: 1;
+  padding: 15px;
+}
+
+/* SCREENS */
+.screen {
+  display: none;
+}
+
+.screen.active {
+  display: block;
+}
+
 /* ARISE */
-#ariseText {
+#arise {
   position: fixed;
   top: 40%;
   width: 100%;
