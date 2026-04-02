@@ -8,7 +8,7 @@ function updateUI() {
   document.getElementById("xpNeeded").innerText = xpNeeded;
 
   let percent = (xp / xpNeeded) * 100;
-  document.getElementById("xpBarFill").style.width = percent + "%";
+  document.getElementById("xpFill").style.width = percent + "%";
 }
 
 function gainXP(amount) {
@@ -21,20 +21,16 @@ function gainXP(amount) {
   updateUI();
 }
 
-function completeMission() {
-  gainXP(20);
-}
-
 function levelUp() {
   xp -= xpNeeded;
   level++;
-  xpNeeded = Math.floor(xpNeeded * 1.2);
+  xpNeeded = Math.floor(xpNeeded * 1.3);
 
   showArise();
 }
 
 function showArise() {
-  const arise = document.getElementById("ariseText");
+  const arise = document.getElementById("arise");
   arise.style.display = "block";
 
   setTimeout(() => {
@@ -42,9 +38,9 @@ function showArise() {
   }, 1500);
 }
 
-function showScreen(screenId) {
+function switchTab(tab) {
   document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
-  document.getElementById(screenId).classList.add("active");
+  document.getElementById(tab).classList.add("active");
 }
 
 updateUI();
