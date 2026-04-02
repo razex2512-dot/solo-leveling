@@ -2,49 +2,63 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>System</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- HEADER -->
-  <div class="header">
-    <h1>⚔ SYSTEM</h1>
-    <p>Player: Anant</p>
+  <div class="app">
+
+    <!-- HEADER -->
+    <header>
+      <h1>SYSTEM</h1>
+      <p>Player: Anant</p>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main id="mainContent">
+
+      <!-- HOME -->
+      <section id="home" class="screen active">
+        <div class="card">
+          <h2>STATUS</h2>
+          <p>Level <span id="level">1</span></p>
+          <div class="xp-bar">
+            <div id="xpFill"></div>
+          </div>
+          <p><span id="xp">0</span> / <span id="xpNeeded">100</span> XP</p>
+        </div>
+
+        <div class="card">
+          <h2>DAILY QUEST</h2>
+          <p>Complete push workout</p>
+          <button onclick="gainXP(25)">COMPLETE</button>
+        </div>
+      </section>
+
+      <!-- GYM -->
+      <section id="gym" class="screen">
+        <div class="card">
+          <h2>GYM MISSIONS</h2>
+          <button onclick="gainXP(30)">Bench Press</button>
+          <button onclick="gainXP(40)">Deadlift</button>
+          <button onclick="gainXP(35)">Pull Ups</button>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- NAVBAR -->
+    <nav>
+      <button onclick="switchTab('home')">Home</button>
+      <button onclick="switchTab('gym')">Gym</button>
+    </nav>
+
+    <!-- ARISE TEXT -->
+    <div id="arise">ARISE</div>
+
   </div>
-
-  <!-- MAIN CONTENT -->
-  <div id="content">
-
-    <!-- HOME SCREEN -->
-    <div id="homeScreen" class="screen active">
-      <h2>Status</h2>
-      <p>Level: <span id="level">1</span></p>
-      <p>XP: <span id="xp">0</span>/<span id="xpNeeded">100</span></p>
-
-      <div class="xp-bar">
-        <div id="xpBarFill"></div>
-      </div>
-
-      <button onclick="completeMission()">Complete Daily Mission</button>
-    </div>
-
-    <!-- GYM SCREEN -->
-    <div id="gymScreen" class="screen">
-      <h2>Gym Missions</h2>
-      <button onclick="gainXP(30)">Bench Press (+30 XP)</button>
-      <button onclick="gainXP(40)">Deadlift (+40 XP)</button>
-    </div>
-
-  </div>
-
-  <!-- NAV BAR -->
-  <div class="navbar">
-    <button onclick="showScreen('homeScreen')">Home</button>
-    <button onclick="showScreen('gymScreen')">Gym</button>
-  </div>
-
-  <div id="ariseText">ARISE</div>
 
   <script src="script.js"></script>
 </body>
