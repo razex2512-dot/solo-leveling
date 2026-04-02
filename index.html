@@ -8,58 +8,48 @@
 </head>
 <body>
 
-  <div class="app">
+<!-- LOGIN PAGE -->
+<div id="loginPage" class="page active">
+  <h2>Login</h2>
+  <input type="text" placeholder="Enter Email or Phone">
+  <button onclick="login()">Login</button>
+</div>
 
-    <!-- HEADER -->
-    <header>
-      <h1>SYSTEM</h1>
-      <p>Player: Anant</p>
-    </header>
+<!-- MAIN APP -->
+<div id="appPage" class="page">
 
-    <!-- MAIN CONTENT -->
-    <main id="mainContent">
+  <!-- TOP NAV -->
+  <header>
+    <button onclick="showSection('home')">Home</button>
+    <button onclick="showSection('workout')">Workout Splits</button>
+    <button onclick="logout()">Logout</button>
+  </header>
 
-      <!-- HOME -->
-      <section id="home" class="screen active">
-        <div class="card">
-          <h2>STATUS</h2>
-          <p>Level <span id="level">1</span></p>
-          <div class="xp-bar">
-            <div id="xpFill"></div>
-          </div>
-          <p><span id="xp">0</span> / <span id="xpNeeded">100</span> XP</p>
-        </div>
+  <!-- CONTENT -->
+  <main>
 
-        <div class="card">
-          <h2>DAILY QUEST</h2>
-          <p>Complete push workout</p>
-          <button onclick="gainXP(25)">COMPLETE</button>
-        </div>
-      </section>
+    <!-- HOME -->
+    <section id="home" class="section active">
+      <h2>Status</h2>
+      <p>Level: <span id="level">1</span></p>
+      <p>XP: <span id="xp">0</span>/<span id="xpNeeded">100</span></p>
 
-      <!-- GYM -->
-      <section id="gym" class="screen">
-        <div class="card">
-          <h2>GYM MISSIONS</h2>
-          <button onclick="gainXP(30)">Bench Press</button>
-          <button onclick="gainXP(40)">Deadlift</button>
-          <button onclick="gainXP(35)">Pull Ups</button>
-        </div>
-      </section>
+      <div class="xp-bar">
+        <div id="xpFill"></div>
+      </div>
+    </section>
 
-    </main>
+    <!-- WORKOUT -->
+    <section id="workout" class="section">
+      <h2>Select Mode</h2>
+      <button onclick="gainXP(20)">Home Workout</button>
+      <button onclick="gainXP(30)">Gym Workout</button>
+    </section>
 
-    <!-- NAVBAR -->
-    <nav>
-      <button onclick="switchTab('home')">Home</button>
-      <button onclick="switchTab('gym')">Gym</button>
-    </nav>
+  </main>
 
-    <!-- ARISE TEXT -->
-    <div id="arise">ARISE</div>
+</div>
 
-  </div>
-
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
