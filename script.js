@@ -1,44 +1,71 @@
-let xp = 0;
-let level = 1;
-let xpNeeded = 100;
-
-function updateUI() {
-  document.getElementById("xp").innerText = xp;
-  document.getElementById("level").innerText = level;
-  document.getElementById("xpNeeded").innerText = xpNeeded;
-
-  let percent = (xp / xpNeeded) * 100;
-  document.getElementById("xpBarFill").style.width = percent + "%";
+body {
+  margin: 0;
+  background: #05070d;
+  color: #00eaff;
+  font-family: sans-serif;
 }
 
-function completeMission() {
-  xp += 20;
-
-  showPopup("🎉 Quest Completed! +20 XP");
-
-  if (xp >= xpNeeded) {
-    levelUp();
-  }
-
-  updateUI();
+/* Header */
+.header {
+  text-align: center;
+  padding: 15px;
+  border-bottom: 1px solid #00eaff;
 }
 
-function levelUp() {
-  xp = xp - xpNeeded;
-  level++;
-  xpNeeded = Math.floor(xpNeeded * 1.2);
-
-  showPopup("🔥 LEVEL UP! Now Level " + level);
+/* Screens */
+.screen {
+  display: none;
+  padding: 20px;
 }
 
-function showPopup(message) {
-  const popup = document.getElementById("popup");
-  popup.innerText = message;
-  popup.style.display = "block";
-
-  setTimeout(() => {
-    popup.style.display = "none";
-  }, 2000);
+.active {
+  display: block;
 }
 
-updateUI();
+/* XP Bar */
+.xp-bar {
+  height: 20px;
+  background: #111;
+  border-radius: 10px;
+  margin: 10px 0;
+}
+
+#xpBarFill {
+  height: 100%;
+  width: 0%;
+  background: #00eaff;
+}
+
+/* Buttons */
+button {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 12px;
+  background: transparent;
+  color: #00eaff;
+  border: 1px solid #00eaff;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+}
+
+.navbar button {
+  flex: 1;
+  padding: 15px;
+}
+
+/* ARISE */
+#ariseText {
+  position: fixed;
+  top: 40%;
+  width: 100%;
+  text-align: center;
+  font-size: 40px;
+  display: none;
+}
