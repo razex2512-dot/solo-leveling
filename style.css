@@ -1,100 +1,61 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
-}
-
 body {
+  margin: 0;
+  font-family: Arial;
   background: #0b0f1a;
-  color: #e6f1ff;
+  color: white;
+  text-align: center;
 }
 
-.app {
-  max-width: 420px;
-  margin: auto;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-/* HEADER */
-header {
+/* Pages */
+.page {
+  display: none;
   padding: 20px;
-  border-bottom: 1px solid #1f2a44;
 }
 
-header h1 {
-  font-size: 20px;
-  letter-spacing: 2px;
+.page.active {
+  display: block;
 }
 
-/* MAIN */
-main {
-  flex: 1;
-  padding: 15px;
-}
-
-/* CARDS */
-.card {
+/* Header */
+header {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
   background: #121a2b;
-  padding: 15px;
-  border-radius: 12px;
-  margin-bottom: 15px;
 }
 
-/* XP BAR */
+/* Sections */
+.section {
+  display: none;
+}
+
+.section.active {
+  display: block;
+}
+
+/* XP Bar */
 .xp-bar {
   height: 10px;
-  background: #1f2a44;
+  background: #222;
   border-radius: 5px;
-  overflow: hidden;
-  margin: 10px 0;
+  margin: 10px;
 }
 
 #xpFill {
   height: 100%;
   width: 0%;
-  background: #4cc9f0;
+  background: cyan;
 }
 
-/* BUTTON */
+/* Inputs */
+input {
+  padding: 10px;
+  width: 80%;
+  margin: 10px;
+}
+
+/* Buttons */
 button {
-  width: 100%;
-  padding: 12px;
-  margin-top: 10px;
-  background: #1f2a44;
-  color: #e6f1ff;
-  border: none;
-  border-radius: 8px;
-}
-
-/* NAVBAR */
-nav {
-  display: flex;
-  border-top: 1px solid #1f2a44;
-}
-
-nav button {
-  flex: 1;
-  padding: 15px;
-}
-
-/* SCREENS */
-.screen {
-  display: none;
-}
-
-.screen.active {
-  display: block;
-}
-
-/* ARISE */
-#arise {
-  position: fixed;
-  top: 40%;
-  width: 100%;
-  text-align: center;
-  font-size: 40px;
-  display: none;
+  padding: 10px;
+  margin: 5px;
 }
