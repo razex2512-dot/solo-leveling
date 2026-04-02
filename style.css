@@ -1,61 +1,107 @@
 body {
   margin: 0;
-  font-family: Arial;
-  background: #0b0f1a;
-  color: white;
-  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  background: radial-gradient(circle at top, #0a0f2c, #000);
+  color: #e6f1ff;
 }
 
 /* Pages */
 .page {
   display: none;
-  padding: 20px;
+  height: 100vh;
 }
-
 .page.active {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Header */
-header {
+/* Login */
+.login-box {
+  text-align: center;
+}
+.login-box button {
+  padding: 12px 20px;
+  background: #1f2a44;
+  color: white;
+  border: none;
+  border-radius: 8px;
+}
+
+/* App layout */
+#appPage {
   display: flex;
-  justify-content: space-around;
-  padding: 10px;
+  flex-direction: column;
+}
+
+/* Topbar */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
   background: #121a2b;
 }
 
-/* Sections */
-.section {
-  display: none;
+.topbar button {
+  margin-left: 5px;
 }
 
-.section.active {
-  display: block;
+/* Content */
+main {
+  flex: 1;
+  padding: 15px;
 }
 
-/* XP Bar */
+/* Cards */
+.card {
+  background: #121a2b;
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+/* XP bar */
 .xp-bar {
   height: 10px;
-  background: #222;
+  background: #1f2a44;
   border-radius: 5px;
-  margin: 10px;
+  overflow: hidden;
+  margin: 10px 0;
 }
 
 #xpFill {
   height: 100%;
   width: 0%;
-  background: cyan;
+  background: #4cc9f0;
+  transition: 0.3s;
 }
 
-/* Inputs */
-input {
-  padding: 10px;
-  width: 80%;
-  margin: 10px;
+/* Sections */
+.section {
+  display: none;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: 0.3s;
+}
+
+.section.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Buttons */
 button {
   padding: 10px;
-  margin: 5px;
+  border-radius: 8px;
+  border: none;
+  background: #1f2a44;
+  color: white;
+  margin-top: 10px;
+}
+
+/* Music */
+.music {
+  padding: 10px;
+  background: #121a2b;
 }
