@@ -3,26 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>System</title>
+  <title>System App</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <!-- LOGIN PAGE -->
 <div id="loginPage" class="page active">
-  <h2>Login</h2>
-  <input type="text" placeholder="Enter Email or Phone">
-  <button onclick="login()">Login</button>
+  <div class="login-box">
+    <h1>SYSTEM</h1>
+    <p>Sign in to continue</p>
+    <button onclick="loginGoogle()">Login with Google</button>
+  </div>
 </div>
 
-<!-- MAIN APP -->
+<!-- APP PAGE -->
 <div id="appPage" class="page">
 
   <!-- TOP NAV -->
-  <header>
-    <button onclick="showSection('home')">Home</button>
-    <button onclick="showSection('workout')">Workout Splits</button>
-    <button onclick="logout()">Logout</button>
+  <header class="topbar">
+    <h2>System</h2>
+    <div>
+      <button onclick="showSection('home')">Home</button>
+      <button onclick="showSection('workout')">Workout</button>
+      <button onclick="logout()">Logout</button>
+    </div>
   </header>
 
   <!-- CONTENT -->
@@ -30,26 +35,37 @@
 
     <!-- HOME -->
     <section id="home" class="section active">
-      <h2>Status</h2>
-      <p>Level: <span id="level">1</span></p>
-      <p>XP: <span id="xp">0</span>/<span id="xpNeeded">100</span></p>
+      <div class="card">
+        <h3>Status</h3>
+        <p>Level <span id="level">1</span></p>
 
-      <div class="xp-bar">
-        <div id="xpFill"></div>
+        <div class="xp-bar">
+          <div id="xpFill"></div>
+        </div>
+
+        <p><span id="xp">0</span> / <span id="xpNeeded">100</span> XP</p>
       </div>
     </section>
 
     <!-- WORKOUT -->
     <section id="workout" class="section">
-      <h2>Select Mode</h2>
-      <button onclick="gainXP(20)">Home Workout</button>
-      <button onclick="gainXP(30)">Gym Workout</button>
+      <div class="card">
+        <h3>Missions</h3>
+        <div id="missions"></div>
+      </div>
     </section>
 
   </main>
 
+  <!-- MUSIC PLAYER -->
+  <div class="music">
+    <audio controls>
+      <source src="assets/song.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
 </div>
 
-<script src="script.js"></script>
+<script type="module" src="script.js"></script>
 </body>
 </html>
