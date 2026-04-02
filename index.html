@@ -2,32 +2,49 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Solo Leveling Fitness</title>
+  <title>System</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div class="container">
-    <h1>🗡️ Solo Leveling Fitness</h1>
+  <!-- HEADER -->
+  <div class="header">
+    <h1>⚔ SYSTEM</h1>
+    <p>Player: Anant</p>
+  </div>
 
-    <div class="card">
-      <h2>Player Stats</h2>
+  <!-- MAIN CONTENT -->
+  <div id="content">
+
+    <!-- HOME SCREEN -->
+    <div id="homeScreen" class="screen active">
+      <h2>Status</h2>
       <p>Level: <span id="level">1</span></p>
-      <p>XP: <span id="xp">0</span> / <span id="xpNeeded">100</span></p>
+      <p>XP: <span id="xp">0</span>/<span id="xpNeeded">100</span></p>
 
       <div class="xp-bar">
         <div id="xpBarFill"></div>
       </div>
+
+      <button onclick="completeMission()">Complete Daily Mission</button>
     </div>
 
-    <div class="card">
-      <h2>Daily Mission</h2>
-      <p>Do 20 Push-ups</p>
-      <button onclick="completeMission()">Complete Mission</button>
+    <!-- GYM SCREEN -->
+    <div id="gymScreen" class="screen">
+      <h2>Gym Missions</h2>
+      <button onclick="gainXP(30)">Bench Press (+30 XP)</button>
+      <button onclick="gainXP(40)">Deadlift (+40 XP)</button>
     </div>
 
-    <div id="popup" class="popup">🎉 Quest Completed!</div>
   </div>
+
+  <!-- NAV BAR -->
+  <div class="navbar">
+    <button onclick="showScreen('homeScreen')">Home</button>
+    <button onclick="showScreen('gymScreen')">Gym</button>
+  </div>
+
+  <div id="ariseText">ARISE</div>
 
   <script src="script.js"></script>
 </body>
